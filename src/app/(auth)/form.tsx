@@ -41,7 +41,7 @@ export default function Form({ type }: FormProps) {
   return (
     <section className="px-6 sm:px-14 py-10 mt-20 space-y-8 bg-slate-600 shadow-lg rounded-xl mx-2 w-full max-w-lg border border-slate-500">
       <h1 className="text-2xl text-slate-200">Sign {type}</h1>
-
+      <h2 className='text-lg text-slate-300'>{type === 'in' ? 'Welcome back' : 'Please create an account'}</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className='space-y-1'>
           <label className="block text-sm text-slate-300">Email</label>

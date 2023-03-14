@@ -1,25 +1,14 @@
 'use client';
 
-import { z } from 'zod';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormError from './form-error';
 import { useRouter } from 'next/navigation';
+import { FormSchema, FormSchemaType } from '@/lib/schemas';
 
-const FormSchema = z.object({
-  email: z.string().trim().email({
-    message: 'Must provide a valid email'
-  }),
-  password: z.string().trim()
-    .min(8, {
-      message: 'Password must be more than 8 characters'
-    })
-    .max(16, {
-      message: 'Password must be less than 16 characters'
-    })
-}).required();
 
-type FormSchemaType = z.infer<typeof FormSchema>;
+
+
 
 type FormProps = {
   type: 'in' | 'up';
@@ -38,7 +27,17 @@ export default function Form({ type }: FormProps) {
 
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     console.log(data)
-    router.push('/promocodes');
+
+    const parsedCreds = FormSchema.parse(data);
+
+    const res = await fetch(`http://localhost:3000/api/auth/sign-${type}`, {
+      method: 'POST',
+      body: JSON.stringify(parsedCreds),
+    });
+
+    if (res.ok) {
+      router.push('/promocodes');
+    }
   };
 
   return (
@@ -80,4 +79,12 @@ export default function Form({ type }: FormProps) {
       </form>
     </section>
   );
+}
+
+async function signUp(creds: FormSchemaType) {
+
+}
+
+async function signIn(creds: FormSchemaType) {
+
 }

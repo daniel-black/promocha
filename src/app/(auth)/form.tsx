@@ -6,10 +6,6 @@ import FormError from './form-error';
 import { useRouter } from 'next/navigation';
 import { FormSchema, FormSchemaType } from '@/lib/schemas';
 
-
-
-
-
 type FormProps = {
   type: 'in' | 'up';
 };

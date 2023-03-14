@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormError from './form-error';
+import { useRouter } from 'next/navigation';
 
 const FormSchema = z.object({
   email: z.string().trim().email({
@@ -25,6 +26,7 @@ type FormProps = {
 };
 
 export default function Form({ type }: FormProps) {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -36,6 +38,7 @@ export default function Form({ type }: FormProps) {
 
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     console.log(data)
+    router.push('/promocodes');
   };
 
   return (

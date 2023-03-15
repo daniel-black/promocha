@@ -8,51 +8,31 @@ export default function PromocodesPage() {
       {/* table elements are quirky so im making a table with other elements */}
       
       {/* Header */}
-      <div className="w-[80%] max-h-[80vh] bg-slate-600 flex flex-col justify-between">
-        <section className="flex divide-x py-2 bg-slate-400">
+      <div className="w-[80%] max-h-[80vh] flex flex-col justify-between">
+        <section className="flex py-3 bg-slate-400 rounded-t-md">
           {headers.map(h => (
             <div className="w-1/5 text-center" key={h}>{h}</div>
           ))}
         </section>
-        <section className="overflow-auto">
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
+
+        {/* Body */}
+        <section className="overflow-auto bg-slate-600">
+          {['*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',].map(x => (
+            <div className="flex justify-between py-2">
+            <span className="w-1/5 text-center">yo</span>
+            <span className="w-1/5 text-center">yo</span>
+            <span className="w-1/5 text-center">yo</span>
+            <span className="w-1/5 text-center">yo</span>
+            <span className="w-1/5 text-center">yo</span>
+          </div>
+          ))}
         </section>
 
         {/* Footer */}
         <section>
           <Link
-            href={'/promocodes'}
-            className="block py-2 w-full text-center bg-slate-400"
+            href={'/promocodes/new'}
+            className="block py-3 w-full text-center bg-slate-400 rounded-b-md"
           >
             Add New Promocode
           </Link>

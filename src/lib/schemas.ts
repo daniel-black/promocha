@@ -27,7 +27,6 @@ export const NewPromocodeFormSchema = z.object({
       message: 'Code must be less than 60 characters'
     }),
   type: z.string(),
-  status: z.string(),
   discount: z.number()
     .min(0.01, {
       message: 'Discount must be at least 0.01'

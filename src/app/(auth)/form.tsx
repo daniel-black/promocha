@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import FormError from './form-error';
 import { useRouter } from 'next/navigation';
 import { FormSchema, FormSchemaType } from '@/lib/schemas';
-import { getBaseUrl } from "@/utils/environment";
 
 type FormProps = {
   type: 'in' | 'up';
@@ -24,7 +23,7 @@ export default function Form({ type }: FormProps) {
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     const parsedCreds = FormSchema.parse(data);
 
-    const res = await fetch(`${getBaseUrl()}/api/auth/sign-${type}`, {
+    const res = await fetch(`/api/auth/sign-${type}`, {
       method: 'POST',
       body: JSON.stringify(parsedCreds),
     });

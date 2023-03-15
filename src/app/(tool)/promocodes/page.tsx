@@ -17,14 +17,14 @@ export default function PromocodesPage() {
 
         {/* Body */}
         <section className="overflow-auto bg-slate-600">
-          {['*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',].map(x => (
-            <div className="flex justify-between py-2">
-            <span className="w-1/5 text-center">yo</span>
-            <span className="w-1/5 text-center">yo</span>
-            <span className="w-1/5 text-center">yo</span>
-            <span className="w-1/5 text-center">yo</span>
-            <span className="w-1/5 text-center">yo</span>
-          </div>
+          {['*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',].map((x, i) => (
+            <div className="flex justify-between py-2" key={i}>
+              <span className="w-1/5 text-center">yo</span>
+              <span className="w-1/5 text-center">yo</span>
+              <span className="w-1/5 text-center">yo</span>
+              <span className="w-1/5 text-center">yo</span>
+              <span className="w-1/5 text-center">yo</span>
+            </div>
           ))}
         </section>
 

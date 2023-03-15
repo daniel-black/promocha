@@ -25,6 +25,7 @@ export default function NewPromocodeForm() {
             onChange={e => setCode(e.target.value.toUpperCase())}
             type="text"
             className="w-full rounded p-3 outline-none bg-slate-200 shadow-sm hover:bg-slate-100 focus:bg-slate-50 focus:ring focus:ring-slate-400 focus:ring-inset focus:ring-offset-1 text-slate-900 text-lg transition-all duration-75"
+            required
           />
         </div>
         
@@ -61,27 +62,36 @@ export default function NewPromocodeForm() {
           </div>
         </div>
 
-
-        <div>
-          <label>Status</label>
-          <input type="text" />
-        </div>
-        <div>
+        {/* <div>
           <label>Discount</label>
           <input type="number" />
         </div>
         <div>
           <label>Maximum Discount</label>
           <input type="number" />
+        </div> */}
+
+        <div className="space-y-1">
+          <label className="block text-sm text-slate-300">Date Range</label>
+          <div className="flex space-x-2">
+            <div className="w-full px-3 py-2 bg-slate-500 rounded flex justify-between items-center">
+              <p className="text-slate-800 italic">Start</p>   
+              <input
+                type="date"
+                className="px-2 py-1 rounded bg-inherit border border-slate-700"
+              />
+            </div>
+            <div className="w-full px-3 py-2 bg-slate-500 rounded flex justify-between items-center">
+              <p className="text-slate-800 italic">End</p>   
+              <input
+                type="date"
+                className="px-2 py-1 rounded bg-inherit border border-slate-700"
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Start</label>
-          <input type="date" />
-        </div>
-        <div>
-          <label>End</label>
-          <input type="date" />
-        </div>
+
+       
         <div className="pt-6">
           <input
             type="submit"
